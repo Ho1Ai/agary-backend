@@ -21,7 +21,8 @@ async fn main() {
 
     let app: Router<> = Router::new()
         .route("/", get(router::static_content_response::defaultResponse))
-        .route("/api/test", get(||async {"test"})).layer(cors);
+        .route("/api/test", get(||async {"test"}))
+        .route("/api/offer-help", post(router::static_content_response::HelpOffer)).layer(cors);
 
     let listener = tokio::net::TcpListener::bind("127.0.0.1:8080").await.unwrap();
     axum::serve(listener, app).await.unwrap();
