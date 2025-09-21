@@ -4,7 +4,7 @@ use serde::{Serialize, Deserialize};
 use crate::router::response_models;
 
 #[derive(Deserialize)]
-struct HelpOffer {
+pub struct HelpOffer {
     username: String,
     token: String,
     github: String,
