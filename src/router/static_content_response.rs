@@ -14,7 +14,7 @@ pub async fn defaultResponse()->&'static str {
     "Hello, World!"
 }
 
-pub async fn HelpOffer (Json(payload): Json<HelpOffer>) -> (StatusCode, response_models::DefaultResponseModel) {
+pub async fn HelpOffer (Json(payload): Json<HelpOffer>) -> (StatusCode, Json<response_models::DefaultResponseModel>) {
     let mut response = response_models::DefaultResponseModel{ state: 0, };
-    return (StatusCode::CREATED, response);
+    return (StatusCode::CREATED, Json(response));
 }
